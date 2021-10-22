@@ -118,5 +118,9 @@ namespace Store.Models.DAO
                 return false;
             }
         }
+        public IEnumerable<SanPham> showproducts(string MaLoaiSP, string MaNSX)
+        {
+            return db.SanPhams.Where(x => x.MaNSX == MaNSX && x.MaLoaiSP == MaLoaiSP);
+        }
     }
 }

@@ -45,5 +45,14 @@ namespace Store.Controllers
             var footer = new CommonDAO().footer();
             return PartialView(footer);
         }
+        public ActionResult ShowProducts(string MaLoaiSP, string MaNSX)
+        {
+            if (MaLoaiSP == null && MaNSX == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            IEnumerable<SanPham> lst = new ProductDAO().showproducts(MaLoaiSP, MaNSX);
+            return View(lst);
+        }
     }
 }

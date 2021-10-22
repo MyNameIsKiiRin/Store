@@ -12,7 +12,6 @@ namespace Store.Models.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ThanhVien()
         {
-            BinhLuans = new HashSet<BinhLuan>();
             KhachHangs = new HashSet<KhachHang>();
         }
 
@@ -41,8 +40,11 @@ namespace Store.Models.EF
         [StringLength(50)]
         public string MaLoaiTV { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BinhLuan> BinhLuans { get; set; }
+        [NotMapped]
+        [Compare("MatKhau")]
+        public string XacNhan { get; set; }
+
+
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KhachHang> KhachHangs { get; set; }

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Store.Models.EF.SanPham>
+
+@{
+    ViewBag.Title = "ShowProducts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    foreach (var item in Model.GroupBy(x => x.LoaiSanPham).Take(1))
+    {
+        foreach (var item1 in Model.GroupBy(x => x.NhaSanXuat).Take(1))
+        {
+            <div style="border-bottom:2px solid orange">
+                <h3 class="text-center my-3 p-1" style="color:white;background:orange;width:fit-content;border-radius:9px">@item.Key.TenLoaiSP / @item1.Key.TenNSX</h3>
+            </div>
+        }
+    }
+}
+
+
+
+<div class="content-bottom">
+    <div class=" row">
+        @foreach (var item in Model)
+        {
+            <div class=" col-md-3 ">
+                <a href=@Url.Action("Index","Products",new {id=item.MaSP })>
+                    <div class="view view-fifth">
+                        <div class="top_box">
+                            <h3 class="m_1 text-center">@item.TenSP</h3>
+                            <div class="grid_img">
+                                <div class="css3 img-fluid"><img src=@Url.Content("~/assets/Client/Product_Images/"+item.HinhAnh1) alt="" /></div>
+                                <div class="mask">
+                                    <a class="info" href=@Url.Action("Index","Products",new {id=item.MaSP })>Chi Tiết</a>
+                                </div>
+                            </div>
+                            <div class="price">@item.DonGia.Value.ToString("#,##") đ</div>
+                        </div>
+                    </div>
+                    <ul class="list" style="background:red">
+                        <li>
+                            <img src="images/plus.png" alt="" />
+                            <ul class="icon1 sub-icon1 profile_img">
+                            </ul>
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        }
+    </div>
+</div>

@@ -132,6 +132,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\RevenueController.cs" />
     <Compile Include="Common\CommonSession.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -161,6 +163,7 @@
     <Compile Include="Models\DAO\RevenueDAO.cs" />
     <Compile Include="Models\DAO\SlideDAO.cs" />
     <Compile Include="Models\DAO\SupplierDAO.cs" />
+    <Compile Include="Models\DAO\ThanhVienDAO.cs" />
     <Compile Include="Models\EF\Admin.cs" />
     <Compile Include="Models\EF\BinhLuan.cs" />
     <Compile Include="Models\EF\CauHinh.cs" />
@@ -295,6 +298,14 @@
     <Content Include="assets\Client\js\jquery.wmuSlider.js" />
     <Content Include="assets\Client\js\megamenu.js" />
     <Content Include="assets\Client\js\move-top.js" />
+    <Content Include="assets\Client\LoginTemplate\css\style.css" />
+    <Content Include="assets\Client\LoginTemplate\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\Client\LoginTemplate\js\fontawesome.js" />
+    <Content Include="assets\Client\RegisterTemplate\css\font-awesome.css" />
+    <Content Include="assets\Client\RegisterTemplate\css\style.css" />
+    <Content Include="assets\Client\RegisterTemplate\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\Client\RegisterTemplate\images\bg6.jpg" />
+    <Content Include="assets\Client\RegisterTemplate\images\tick.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -465,6 +476,16 @@
     <Content Include="assets\Admin\AdminLogin\scss\bootstrap\_variables.scss" />
     <Content Include="assets\Admin\AdminLogin\scss\style.scss" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="assets\Client\LoginTemplate\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\Client\LoginTemplate\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\Client\LoginTemplate\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\Client\LoginTemplate\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\Client\LoginTemplate\fonts\FontAwesome.otf" />
+    <Content Include="assets\Client\RegisterTemplate\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\Client\RegisterTemplate\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\Client\RegisterTemplate\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\Client\RegisterTemplate\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\Client\RegisterTemplate\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -498,6 +519,9 @@
     <Content Include="Views\Home\FooterPartial.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\UpdateCart.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Home\ShowProducts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -507,6 +531,7 @@
     <Folder Include="assets\Client\News\" />
     <Folder Include="assets\Client\Product_Images\" />
     <Folder Include="assets\Common\" />
+    <Folder Include="Data\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
