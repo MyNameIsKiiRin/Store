@@ -5,15 +5,28 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @{
-    foreach (var item in Model.GroupBy(x => x.LoaiSanPham).Take(1))
+    if (@ViewData["MaLoaiNSX"] == null)
     {
-        foreach (var item1 in Model.GroupBy(x => x.NhaSanXuat).Take(1))
+        foreach (var item in Model.GroupBy(x => x.LoaiSanPham).Take(1))
         {
-            <div style="border-bottom:2px solid orange">
-                <h3 class="text-center my-3 p-1" style="color:white;background:orange;width:fit-content;border-radius:9px">@item.Key.TenLoaiSP / @item1.Key.TenNSX</h3>
-            </div>
+            foreach (var item1 in Model.GroupBy(x => x.NhaSanXuat).Take(1))
+            {
+                <div style="border-bottom:2px solid orange">
+                    <h3 class="text-center my-3 p-1" style="color:white;background:orange;width:fit-content;border-radius:9px">@item.Key.TenLoaiSP / @item1.Key.TenNSX</h3>
+                </div>
+            }
         }
     }
+    else
+    {
+        foreach (var item in Model.GroupBy(x => x.LoaiSanPham).Take(1))
+        {
+                <div style="border-bottom:2px solid orange">
+                    <h3 class="text-center my-3 p-1" style="color:white;background:orange;width:fit-content;border-radius:9px">@item.Key.TenLoaiSP</h3>
+                </div>
+        }
+    }
+
 }
 
 

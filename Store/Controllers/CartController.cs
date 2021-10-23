@@ -105,7 +105,6 @@ namespace Store.Controllers
         }
         public ActionResult Order(DonDatHang order,KhachHang customer)
         {
-            
             if (Session["Cart"] == null)
                 return RedirectToAction("Index", "Home");
             KhachHang Customer = new KhachHang();
@@ -118,7 +117,7 @@ namespace Store.Controllers
             }
             else
             {
-                ThanhVien mem= Session["Customer"] as ThanhVien;
+                ThanhVien mem = Session["Customer"] as ThanhVien;
                 Customer.TenKH = mem.HoTen;
                 Customer.DiaChi = mem.DiaChi;
                 Customer.Email = mem.Email;
@@ -131,7 +130,6 @@ namespace Store.Controllers
             List<CartItem> LstCart = GetCart();
             if(dao)
             {
-                
                 foreach (var item in LstCart)
                 {
                     ChiTietDonDatHang dtorder = new ChiTietDonDatHang();
@@ -144,8 +142,7 @@ namespace Store.Controllers
                     dtorder.DonGia = item.dongia;
                     db.ChiTietDonDatHangs.Add(dtorder);
                     db.SaveChanges();
-                }
-               
+                } 
             }
             Session["Cart"] = null;
             return RedirectToAction("Index");

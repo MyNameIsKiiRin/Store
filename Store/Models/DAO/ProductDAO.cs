@@ -122,5 +122,9 @@ namespace Store.Models.DAO
         {
             return db.SanPhams.Where(x => x.MaNSX == MaNSX && x.MaLoaiSP == MaLoaiSP);
         }
+        public IEnumerable<SanPham> showbycategories(string MaLoaiSP)
+        {
+            return db.SanPhams.Where(x=> x.MaLoaiSP == MaLoaiSP);
+        }
     }
 }

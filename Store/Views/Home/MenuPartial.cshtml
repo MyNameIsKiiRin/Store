@@ -13,7 +13,7 @@
                 if (item.Key != null)
                 {
                     <li class="grid">
-                        <a class="color2" href=@Url.Action("List_Products","Products", new {@id=item.Key.MaLoaiSP })>@item.Key.TenLoaiSP</a>
+                        <a class="color2" href=@Url.Action("ShowProducts", "Home", new { MaLoaiSP = item.Key.MaLoaiSP, MaNSX = "null" })>@item.Key.TenLoaiSP</a>
                         <div class="megapanel">
                             <div class="row">
                                 @foreach (var item2 in item.GroupBy(n => n.NhaSanXuat))

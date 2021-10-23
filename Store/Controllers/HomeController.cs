@@ -47,9 +47,11 @@ namespace Store.Controllers
         }
         public ActionResult ShowProducts(string MaLoaiSP, string MaNSX)
         {
-            if (MaLoaiSP == null && MaNSX == null)
+            if (MaNSX == "null")
             {
-                return RedirectToAction("Index", "Home");
+                IEnumerable<SanPham> lst1 = new ProductDAO().showbycategories(MaLoaiSP);
+                ViewData["MaLoaiNSX"] = MaNSX;
+                return View(lst1);
             }
             IEnumerable<SanPham> lst = new ProductDAO().showproducts(MaLoaiSP, MaNSX);
             return View(lst);
