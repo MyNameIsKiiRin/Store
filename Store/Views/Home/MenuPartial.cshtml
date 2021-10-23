@@ -22,7 +22,7 @@
                                         <div class="h_nav">
                                             @if (item2.Key != null)
                                             {
-                                            <h4>@item2.Key.TenNSX</h4>
+                                            <h4>@Html.ActionLink(@item2.Key.TenNSX, "ShowProducts", "Home", new { MaLoaiSP = item.Key.MaLoaiSP, MaNSX = item2.Key.MaNSX }, "")</h4>
                                             <ul>
                                                 @foreach (var item3 in item2)
                                                 {
