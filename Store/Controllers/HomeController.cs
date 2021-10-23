@@ -9,6 +9,7 @@ namespace Store.Controllers
 {
     public class HomeController : Controller
     {
+        
         public ActionResult Index()
         {
             ViewBag.Temp = "";
@@ -54,6 +55,19 @@ namespace Store.Controllers
                 return View(lst1);
             }
             IEnumerable<SanPham> lst = new ProductDAO().showproducts(MaLoaiSP, MaNSX);
+            return View(lst);
+        }
+
+        
+        public ActionResult Search(string TenSP)
+        {
+
+            DBStore db = new DBStore();
+            if (TenSP == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            IEnumerable<SanPham> lst = db.SanPhams.Where(x=>x.TenSP.Contains(TenSP));
             return View(lst);
         }
     }
