@@ -21,7 +21,7 @@ namespace Store.Models.DAO
         {
             var bytes = Encoding.UTF8.GetBytes(tv.MatKhau);
             var hash = MD5.Create().ComputeHash(bytes);
-            Convert.ToBase64String(hash);
+            tv.MatKhau = Convert.ToBase64String(hash);
             return db.ThanhViens.Where(x => x.TaiKhoan == tv.TaiKhoan && x.MatKhau == tv.MatKhau).Count();
         }
 

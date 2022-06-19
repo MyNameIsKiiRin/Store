@@ -46,16 +46,18 @@ namespace Store.Controllers
             var footer = new CommonDAO().footer();
             return PartialView(footer);
         }
-        public ActionResult ShowProducts(string MaLoaiSP, string MaNSX)
+        public ActionResult ShowProducts(string MaLoaiSP, string MaNSX, int page = 1, int pageSize = 10)
         {
             if (MaNSX == "null")
             {
                 IEnumerable<SanPham> lst1 = new ProductDAO().showbycategories(MaLoaiSP);
+                var data1 = lst1.Skip(page).Take(pageSize).ToList();
                 ViewData["MaLoaiNSX"] = MaNSX;
-                return View(lst1);
+                return View(data1);
             }
             IEnumerable<SanPham> lst = new ProductDAO().showproducts(MaLoaiSP, MaNSX);
-            return View(lst);
+            var data = lst.Skip(page).Take(pageSize).ToList();
+            return View(data);
         }
 
         

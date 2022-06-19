@@ -501,6 +501,11 @@ ul.list li img{
 	display: block;
 	border: 0;
 }
+
+.check_customer:hover {
+	cursor: pointer;
+}
+
 .icon1 ul li:first-child{
 	border-top:none;
 }

@@ -4,6 +4,7 @@
     ViewBag.Title = "ShowProducts";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @{
     if (@ViewData["MaLoaiNSX"] == null)
     {
@@ -13,6 +14,12 @@
             {
                 <div style="border-bottom:2px solid orange">
                     <h3 class="text-center my-3 p-1" style="color:white;background:orange;width:fit-content;border-radius:9px">@item.Key.TenLoaiSP / @item1.Key.TenNSX</h3>
+                    <input type="checkbox" name="price" />
+                    <label for="price">All</label>
+                    <input type="checkbox" name="price" />
+                    <label for="price">1.000.000 - 2.000.000đ</label>
+                    <input type="checkbox" name="price" />
+                    <label for="price">2.000.000 - 3.000.000đ</label>
                 </div>
             }
         }
@@ -21,14 +28,27 @@
     {
         foreach (var item in Model.GroupBy(x => x.LoaiSanPham).Take(1))
         {
-                <div style="border-bottom:2px solid orange">
-                    <h3 class="text-center my-3 p-1" style="color:white;background:orange;width:fit-content;border-radius:9px">@item.Key.TenLoaiSP</h3>
+            <div style="border-bottom:2px solid orange">
+                <h3 class="text-center my-3 p-1" style="color:white;background:orange;width:fit-content;border-radius:9px">@item.Key.TenLoaiSP</h3>
+                <div style="display: flex; justify-content: space-around; width: 40%; margin-bottom: 10px">
+                    <div class="" style="display:flex;align-items:center;width:10%;justify-content:space-around">
+                        <input type="checkbox" name="price" />
+                        <label style="font-size: 14px; margin: 0" for="price">All</label>
+                    </div>
+                    <div class="" style="display:flex;align-items:center;width:35%;justify-content:space-around">
+                        <input type="checkbox" name="price" />
+                        <label style="font-size: 14px; margin: 0" for="price">1.000.000 - 2.000.000đ</label>
+                    </div>
+                    <div class="" style="display:flex;align-items:center;width:35%;justify-content:space-around">
+                        <input type="checkbox" name="price" />
+                        <label style="font-size: 14px;margin:0" for="price">2.000.000 - 3.000.000đ</label>
+                    </div>
                 </div>
+            </div>
         }
     }
 
 }
-
 
 
 <div class="content-bottom">
@@ -60,4 +80,6 @@
             </div>
         }
     </div>
+
 </div>
+
